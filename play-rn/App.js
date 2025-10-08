@@ -1,20 +1,24 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet } from 'react-native';
+import { SafeAreaView, SafeAreaProvider } from 'react-native-safe-area-context';
+import ScrollViewList from './components/ScrollViewList.js';
+import FlatListView from './components/FlatListView.js';
+import SectionListView from './components/SectionListView.js';
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <SafeAreaProvider>
+      <SafeAreaView styles={styles.container} edges={['top']}>
+        {/* <ScrollViewList /> */}
+        {/* <FlatListView /> */}
+        <SectionListView />
+    </SafeAreaView>
+    </SafeAreaProvider>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
+    paddingTop: 22
+  }
 });
